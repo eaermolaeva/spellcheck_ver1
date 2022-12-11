@@ -56,8 +56,8 @@ species_list <-
 # to add "sp." to the genus level, so everything will be coherent)
 
 dict_verified <-
-  readxl::read_xlsx("10dec_dict.xlsx", sheet = "verified_list") %>%
-  rename(species = verified) %>%
+  read.csv("https://raw.githubusercontent.com/eaermolaeva/spellcheck_ver1/main/verified_list.csv") %>%
+  select(species = 1) %>%
   
   # make it lower case
   mutate(species = str_to_lower(species)) %>%
@@ -77,8 +77,8 @@ dict_verified <-
 # This is the additional species list, it should be updated and checked manually
 
 dict_additional <-
-  readxl::read_xlsx("10dec_dict.xlsx", sheet = "additional_list") %>%
-  select(additional_list) %>%
+  read.csv("https://raw.githubusercontent.com/eaermolaeva/spellcheck_ver1/main/additional_list.csv") %>%
+  select(additional_list = 1) %>%
   rename(species = additional_list) %>%
   #read.csv("dict_2_12_22.csv") %>%
   
@@ -149,7 +149,7 @@ species_list <-
 #-------------------------------------------------------------------------------  
 
 synoms <- 
-  read.csv("synoms2.csv") %>%
+  read.csv("https://raw.githubusercontent.com/eaermolaeva/spellcheck_ver1/main/synoms2.csv") %>%
   rename(species = species_outdated)
 
 species_list <- 
