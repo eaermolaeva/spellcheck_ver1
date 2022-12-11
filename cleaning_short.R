@@ -1,6 +1,5 @@
 #-------------------------------------------------------------------------------
 library(tidyverse)
-library(readxl)
 
 #-------------------------------------------------------------------------------
 # Load the data to clean, here it's the names of species from complexes dataset
