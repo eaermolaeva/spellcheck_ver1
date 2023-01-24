@@ -128,7 +128,7 @@ spellchecked4_species <-
   unnest_longer(dict) %>% 
   # compute distance for each combination (row)
   rowwise() %>% 
-  mutate(dist = adist(species, dict)[,1]) %>% 
+  mutate(dist = adist(species, dict, ignore.case = TRUE, fixed = FALSE)[,1]) %>% 
   # extract minimum distance combination for each original name
   group_by(species) %>% 
   slice_min(dist)
